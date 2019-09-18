@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+@using System.Web.Mvc.Html
+@model My.Custom.ImageField.Models.AssetViewModel
+
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="/sitecore/shell/client/Business%20Component%20Library/version%202/Assets/stylesheets/Speak%20Components%20-%20DefaultTheme/speak-components.css" rel="stylesheet" type="text/css">
+    <link href="/sitecore/shell/client/Speak/Assets/css/speak-default-theme.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var selectedImg = '';
+            var selectedUrl = ''
+
+            $('#searchResult').on('click', '.dam-image', function() {
+                selectedImg = $(this).data('id');
+                selectedUrl = $(this).attr('src');
+
+                $('.sc-iconList-wrap').removeClass('active');
+                $(this).closest('.sc-iconList-wrap').toggleClass('active');
+
+                console.log(selectedImg + ' - ' + selectedUrl);
+            });
+
+            $('#SelectMediaButton').on('click', function() {
+                if (selectedImg === 'undefined') {
+                    console.log('no image selected');
+                } else {
+                    console.log('selected id: ' + selectedImg);
+
+                    window.top.returnValue = selectedImg + "|" + selectedUrl;
+                    window.top.dialogClose();
+                }
+            });
+
+            $('#CancelButton').on('click', function() {
+                window.top.dialogClose();
+            });
+
+            $('#btnSearch').on('click', function () {
+
+                var query = $('#inSearch').val();
+
+                console.log('value of search query: ' + query);
+
+                $.ajax({ //Do an ajax post to the controller
+                    type: 'GET',
+                    url: '/custom/assets/dosearch/?query=' + query,
+                    success: function (result) {
+                        console.log('success: ' + result);
+                        $('#searchResult').empty();
+                        $('#searchResult').html(result);
+                    },
+                    error: function (err) {
+                        console.log('error');
+                        console.log(err);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="sc sc-fullWidth">
+    <div class="sc-list">
+        <div class="container-narrow">
+            <section style="margin:0px" class="sc-dialogContent">
+                <div class="sc-navigation-wrapper">
+                    <nav style="top:0px" class="sc-dialogContent-navigation sc-navigation-menu">
+                        <button class="btn sc-button btn-primary lg sc_Button_85 data-sc-registered" onclick="javascript:alert('does not work! (...yet)')">Upload</button>
+                    </nav>
+                </div>
+            </section>
+        </div>
+        <div class="sc-navigation-content">
+            <section class="sc-dialogContent-title">
+                <span class="sc-text sc-text-largetitle sc_Text_5 data-sc-registered"></span>
+            </section>
+            <section class="sc-dialogContent-toolbar">
+                <div class="sc-dialogContent-toolbar-actions text-right">
+                    <div class="row">
+                        <div class="col-md-8 col-lg8 col-sm-8 col-xs-8">
+                            <div class="sc-search row sc_SearchPanel_124 data-sc-registered">
+                                <div class="sc-search-searches col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <div class="sc-buttontextbox input-group sc_ButtonTextBox_38 data-sc-registered">
+                                        <input id="inSearch" class="form-control data-sc-registered" type="text" placeholder="Search..."/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" id="btnSearch">
+                                                <img src="/sitecore/shell/client/Speak/Assets/img/Speak/Common/16x16/dark_gray/search.png">
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sc-dialogContent-main">
+                <div class="sc-border sc_Border_103 data-sc-registered">
+                    <div>
+                        <div class="clearfix" id="searchResult">
+                            @Html.Partial("/Views/Search/AjaxSearchResult.cshtml", Model.Images)
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="sc-dialogFooter">
+        <div class="sc-dialogFooter-content">
+            <div class="sc-dialogFooter-content-buttons">
+                <button id="SelectMediaButton" class="btn sc-button btn-primary sc_Button_88 data-sc-registered"
+                        title="Select media item" type="button">
+                    <span class="sc-button-text data-sc-registered">Select</span>
+                </button>
+                <button id="CancelButton" class="btn sc-button btn-default sc_Button_91 data-sc-registered" title="Close the dialog box" type="button">
+                    <span class="sc-button-text data-sc-registered">Cancel</span>
+                </button>
+            </div>
+        </div>
+        <div class="sc-dialogFooter-content">
+            <div class="sc-dialogFooter-content-buttons">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

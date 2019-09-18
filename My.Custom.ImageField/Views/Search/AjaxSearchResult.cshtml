@@ -1,0 +1,15 @@
+﻿@using My.Custom.ImageField.Models
+@model List<Asset>
+
+@foreach (Asset image in Model)
+{
+    <div class="sc-iconList-wrap">
+        <div class="sc-iconList-item">
+            <div class="sc-iconList-item-content">
+                <a class="dam-link" href="#">
+                    <img src="@image.ImageUrl" alt="@image.Name" data-id="@image.Id" class="dam-image" />
+                </a>
+            </div>
+        </div>
+    </div>
+}
