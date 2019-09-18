@@ -20,27 +20,25 @@
     <link href="/sitecore/shell/client/Speak/Assets/css/speak-default-theme.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            var selectedImg = '';
+            
             var selectedUrl = ''
 
             $('#searchResult').on('click', '.dam-image', function() {
-                selectedImg = $(this).data('id');
                 selectedUrl = $(this).attr('src');
 
                 $('.sc-iconList-wrap').removeClass('active');
                 $(this).closest('.sc-iconList-wrap').toggleClass('active');
 
-                console.log(selectedImg + ' - ' + selectedUrl);
+                console.log(selectedUrl);
             });
 
             $('#SelectMediaButton').on('click', function() {
-                if (selectedImg === 'undefined') {
+                if (selectedUrl === 'undefined') {
                     console.log('no image selected');
                 } else {
-                    console.log('selected id: ' + selectedImg);
+                    console.log('selected id: ' + selectedUrl);
 
-                    window.top.returnValue = selectedImg + "|" + selectedUrl;
+                    window.top.returnValue = selectedUrl;
                     window.top.dialogClose();
                 }
             });
@@ -57,7 +55,7 @@
 
                 $.ajax({ //Do an ajax post to the controller
                     type: 'GET',
-                    url: '/custom/assets/dosearch/?query=' + query,
+                    url: '/api/imagefield/dosearch/?query=' + query,
                     success: function (result) {
                         console.log('success: ' + result);
                         $('#searchResult').empty();

@@ -8,8 +8,8 @@ namespace My.Custom.ImageField.Infrastructure
     {
         public void Process(PipelineArgs args)
         {
-            RouteTable.Routes.MapRoute("ImageSearch", "custom/assets/search", new { controller = "Assets", action = "Search" });
-            RouteTable.Routes.MapRoute("ImageDoSearch", "custom/assets/dosearch/{query}", new { controller = "Assets", action = "doSearch", query = UrlParameter.Optional });
+            RouteTable.Routes.MapRoute("ImageSearch", "api/imagefield/search", new { controller = "ImageField", action = "Search" });
+            RouteTable.Routes.MapRoute("ImageDoSearch", "api/imagefield/dosearch/{query}", new { controller = "ImageField", action = "doSearch", query = UrlParameter.Optional });
         }
     }
 }

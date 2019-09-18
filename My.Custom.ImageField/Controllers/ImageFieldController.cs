@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace My.Custom.ImageField.Controllers
 {
-    public class AssetsController : Controller
+    public class ImageFieldController : Controller
     {
         private readonly AssetFactory _factory;
         private readonly AssetSearchService _searchService;
 
-        public AssetsController()
+        public ImageFieldController()
         {
             _factory = new AssetFactory();
             _searchService = new AssetSearchService("dam_image_index");

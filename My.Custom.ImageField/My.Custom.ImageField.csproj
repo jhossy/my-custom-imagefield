@@ -119,7 +119,7 @@
     <Compile Include="Infrastructure\Indexing\IndexableImageField.cs" />
     <Compile Include="Infrastructure\Indexing\IndexInfo.cs" />
     <Compile Include="Infrastructure\RegisterImageRoute.cs" />
-    <Compile Include="Controllers\AssetsController.cs" />
+    <Compile Include="Controllers\ImageFieldController.cs" />
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetFactory.cs" />
     <Compile Include="Models\AssetViewModel.cs" />

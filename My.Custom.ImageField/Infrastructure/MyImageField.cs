@@ -65,7 +65,7 @@ namespace My.Custom.ImageField.Infrastructure
             }
             else
             {
-                UrlString urlToDialog = new UrlString(Sitecore.Context.Site.TargetHostName + "/custom/assets/search");
+                UrlString urlToDialog = new UrlString(Sitecore.Context.Site.TargetHostName + "/api/imagefield/search");
 
                 SheerResponse.ShowModalDialog(new ModalDialogOptions(urlToDialog.ToString())
                 {
@@ -143,11 +143,9 @@ namespace My.Custom.ImageField.Infrastructure
             if (attribute.Length <= 0)
                 return string.Empty;
 
-            string[] result = attribute.Split('|');
-            if (result.Length < 2) return string.Empty;
-
-            return result[1];
+            return attribute;
         }
+
         protected override void DoRender(HtmlTextWriter output)
         {
             Assert.ArgumentNotNull((object)output, nameof(output));
