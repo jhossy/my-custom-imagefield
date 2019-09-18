@@ -129,7 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="App_Config\Include\Foundation\Foundation.IndexConfiguration.config" />
+    <Content Include="App_Config\Include\Foundation\Foundation.My.Custom.ImageField.IndexConfiguration.config" />
     <Content Include="App_Config\Include\Foundation\Foundation.My.Custom.ImageField.config" />
     <None Include="packages.config" />
     <Content Include="Views\Search\AjaxSearchResult.cshtml" />
