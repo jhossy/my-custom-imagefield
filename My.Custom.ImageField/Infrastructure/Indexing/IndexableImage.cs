@@ -10,8 +10,8 @@ namespace My.Custom.ImageField.Infrastructure.Indexing
 {
     public class IndexableImage : IIndexable
     {
-        private readonly Asset _asset;
-        public IndexableImage(Asset asset)
+        private readonly ImageAsset _asset;
+        public IndexableImage(ImageAsset asset)
         {
             _asset = asset;
         }

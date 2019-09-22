@@ -113,18 +113,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\MyImageField.cs" />
-    <Compile Include="Infrastructure\Search\AssetSearchService.cs" />
+    <Compile Include="Infrastructure\Search\ImageSearchService.cs" />
     <Compile Include="Infrastructure\Indexing\CustomImageCrawler.cs" />
     <Compile Include="Infrastructure\Indexing\IndexableImage.cs" />
     <Compile Include="Infrastructure\Indexing\IndexableImageField.cs" />
     <Compile Include="Infrastructure\Indexing\IndexInfo.cs" />
     <Compile Include="Infrastructure\RegisterImageRoute.cs" />
     <Compile Include="Controllers\ImageFieldController.cs" />
-    <Compile Include="Models\Asset.cs" />
-    <Compile Include="Models\AssetFactory.cs" />
-    <Compile Include="Models\AssetViewModel.cs" />
+    <Compile Include="Models\ImageAsset.cs" />
+    <Compile Include="Models\ImageAssetFactory.cs" />
+    <Compile Include="Models\ImageAssetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\Search\AssetSearchResultItem.cs" />
+    <Compile Include="Infrastructure\Search\ImageSearchResultItem.cs" />
     <Compile Include="Infrastructure\Search\SearchResult.cs" />
   </ItemGroup>
   <ItemGroup>

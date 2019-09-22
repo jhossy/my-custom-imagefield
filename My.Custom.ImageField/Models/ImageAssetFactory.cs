@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace My.Custom.ImageField.Models
 {
-    public class AssetFactory
+    public class ImageAssetFactory
     {
-        public List<Asset> CreateList()
+        public List<ImageAsset> CreateList()
         {
-            List<Asset> result = new List<Asset>();
+            List<ImageAsset> result = new List<ImageAsset>();
 
             for (int i = 0; i < 50; i++)
             {
-                result.Add(new Asset()
+                result.Add(new ImageAsset()
                 {
                     Id = Guid.NewGuid(),
                     Name = "image " + i,

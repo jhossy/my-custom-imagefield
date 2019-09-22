@@ -8,15 +8,15 @@ namespace My.Custom.ImageField.Infrastructure.Indexing
 {
     public class CustomImageCrawler : FlatDataCrawler<IndexableImage>
     {
-        private readonly AssetFactory _factory = new AssetFactory();
-        private List<Asset> _allAssets = null;
-        private List<Asset> AllAssets
+        private readonly ImageAssetFactory _factory = new ImageAssetFactory();
+        private List<ImageAsset> _allAssets = null;
+        private List<ImageAsset> AllAssets
         {
             get
             {
                 if (_allAssets == null)
                 {
-                    _allAssets = new List<Asset>();
+                    _allAssets = new List<ImageAsset>();
                     _allAssets = _factory.CreateList();
                 }
 
@@ -53,7 +53,7 @@ namespace My.Custom.ImageField.Infrastructure.Indexing
         protected override IEnumerable<IndexableImage> GetItemsToIndex()
         {
             var list = new List<IndexableImage>();
-            foreach (Models.Asset asset in AllAssets)
+            foreach (Models.ImageAsset asset in AllAssets)
             {
                 list.Add(new IndexableImage(asset));
             }

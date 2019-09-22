@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace My.Custom.ImageField.Infrastructure.Search
 {
-    public class AssetSearchResultItem : SearchResultItem
+    public class ImageSearchResultItem : SearchResultItem
     {
         [DataMember]
         [IndexField("assetid")]

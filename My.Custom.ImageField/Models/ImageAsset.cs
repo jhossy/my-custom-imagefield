@@ -3,7 +3,7 @@ using System;
 
 namespace My.Custom.ImageField.Models
 {
-    public class Asset
+    public class ImageAsset
     {
         [IndexInfo("assetid")]
         public Guid Id { get; set; }

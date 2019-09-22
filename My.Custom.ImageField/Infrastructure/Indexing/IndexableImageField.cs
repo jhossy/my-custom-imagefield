@@ -6,10 +6,10 @@ namespace My.Custom.ImageField.Infrastructure.Indexing
 {
     public class IndexableImageField : IIndexableDataField
     {
-        private readonly Models.Asset _asset;
+        private readonly Models.ImageAsset _asset;
         private readonly PropertyInfo _fieldInfo;
 
-        public IndexableImageField(Models.Asset concreteObject, PropertyInfo fieldInfo)
+        public IndexableImageField(Models.ImageAsset concreteObject, PropertyInfo fieldInfo)
         {
             _asset = concreteObject;
             _fieldInfo = fieldInfo;

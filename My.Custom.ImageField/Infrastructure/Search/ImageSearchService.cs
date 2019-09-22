@@ -4,11 +4,11 @@ using Sitecore.ContentSearch;
 
 namespace My.Custom.ImageField.Infrastructure.Search
 {
-    public class AssetSearchService
+    public class ImageSearchService
     {
         private readonly string _indexName;
 
-        public AssetSearchService(string indexName)
+        public ImageSearchService(string indexName)
         {
             _indexName = indexName;
         }
@@ -19,7 +19,7 @@ namespace My.Custom.ImageField.Infrastructure.Search
             
             using (var context = index.CreateSearchContext())
             {
-                var preResults = context.GetQueryable<AssetSearchResultItem>()
+                var preResults = context.GetQueryable<ImageSearchResultItem>()
                     .Where(x => x.AssetName.Contains(query))
                     .ToList();
 
