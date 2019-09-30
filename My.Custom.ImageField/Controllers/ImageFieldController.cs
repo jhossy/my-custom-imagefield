@@ -18,7 +18,7 @@ namespace My.Custom.ImageField.Controllers
         public ImageFieldController()
         {
             _factory = new ImageAssetFactory();
-            _searchService = new ImageSearchService("dam_image_index");
+            _searchService = new ImageSearchService("my_image_index");
         }
         
         public ActionResult Search()
